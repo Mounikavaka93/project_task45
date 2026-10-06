@@ -1,0 +1,523 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-zest-50: #fff7ed;
+  --color-zest-100: #ffedd5;
+  --color-zest-200: #fed7aa;
+  --color-zest-400: #fb923c;
+  --color-zest-500: #f97316;
+  --color-zest-600: #ea580c;
+  --color-leaf-400: #4ade80;
+  --color-leaf-500: #22c55e;
+  --color-leaf-600: #16a34a;
+  --color-ink-800: #292524;
+  --color-ink-900: #1c1917;
+  --color-ink-950: #0c0a09;
+  --color-grove-900: #10211a;
+  --color-grove-950: #08140f;
+}
+
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: 4.5rem;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background: #fff7ed;
+  color: #1c1917;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.dark body {
+  background: #08140f;
+  color: #f5f5f4;
+}
+
+::selection {
+  background: #fb923c;
+  color: #fff;
+}
+
+section,
+[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-pause:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(4deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 62% 38% 46% 54% / 60% 40% 60% 40%;
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    border-radius: 40% 60% 70% 30% / 50% 60% 40% 50%;
+    transform: translate(12px, -8px) scale(1.06);
+  }
+  66% {
+    border-radius: 70% 30% 40% 60% / 40% 70% 30% 60%;
+    transform: translate(-10px, 10px) scale(0.96);
+  }
+}
+
+@keyframes drip {
+  0% {
+    transform: translateY(-18px) scaleY(0.6);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(420px) scaleY(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes word-up {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-130%) skewX(-12deg);
+  }
+  to {
+    transform: translateX(220%) skewX(-12deg);
+  }
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate(-1.5%, 1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes cart-pop {
+  0% {
+    transform: scale(0.4);
+  }
+  55% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.85);
+    opacity: 0;
+  }
+}
+
+@keyframes icon-spin-in {
+  from {
+    transform: rotate(-90deg) scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-fix {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes wave-shift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shine-loop {
+  0%,
+  55% {
+    transform: translateX(-130%) skewX(-14deg);
+  }
+  80%,
+  100% {
+    transform: translateX(230%) skewX(-14deg);
+  }
+}
+
+@keyframes fruit-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(8deg);
+  }
+}
+
+@keyframes dash-draw {
+  from {
+    stroke-dashoffset: 180;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes splash {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.float-y {
+  animation: float-y 4.6s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: float-slow 6.2s ease-in-out infinite;
+}
+
+.blob {
+  animation: pulse-soft 7s ease-in-out infinite;
+}
+
+.blob-morph {
+  animation: morph 14s ease-in-out infinite;
+}
+
+.drip {
+  animation: drip var(--dur, 4.8s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.word-up {
+  animation: word-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: reveal-up 0.7s ease forwards;
+}
+
+.stagger-in {
+  animation: stagger-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.gradient-flow {
+  background-size: 200% auto;
+  animation: gradient-flow 7s ease infinite;
+}
+
+.ken-burns {
+  animation: ken-burns 18s ease-in-out infinite;
+}
+
+.cart-pop {
+  animation: cart-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toast-in {
+  animation: toast-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.icon-spin-in {
+  animation: icon-spin-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.magnetic {
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 45%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 80%
+  );
+  transform: translateX(-130%) skewX(-14deg);
+  pointer-events: none;
+}
+
+.group:hover .shine::after,
+.shine:hover::after {
+  animation: shine 0.85s ease;
+}
+
+.btn-press {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-press:hover {
+  transform: translateY(-2px);
+}
+
+.btn-press:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.orbit {
+  animation: orbit 24s linear infinite;
+}
+
+.orbit-fix {
+  animation: orbit-fix 24s linear infinite;
+}
+
+.wave-shift {
+  animation: wave-shift 8s linear infinite;
+}
+
+.shine-loop::after {
+  animation: shine-loop 4.8s ease-in-out infinite;
+}
+
+.fruit-bob {
+  animation: fruit-bob 4.2s ease-in-out infinite;
+}
+
+.dash-draw {
+  stroke-dasharray: 180;
+  animation: dash-draw 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.splash-ring {
+  animation: splash 1.4s ease-out both;
+}
+
+.splash-ring-late {
+  animation: splash 1.6s ease-out 0.12s both;
+}
+
+.live-dot {
+  position: relative;
+}
+
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 999px;
+  background: inherit;
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track,
+  .float-y,
+  .float-slow,
+  .blob,
+  .blob-morph,
+  .drip,
+  .word-up,
+  .reveal,
+  .stagger-in,
+  .gradient-flow,
+  .ken-burns,
+  .cart-pop,
+  .toast-in,
+  .icon-spin-in,
+  .splash-ring,
+  .splash-ring-late,
+  .live-dot::after,
+  .shine-loop::after,
+  .orbit,
+  .orbit-fix,
+  .wave-shift,
+  .fruit-bob,
+  .dash-draw,
+  .group:hover .shine::after,
+  .shine:hover::after {
+    animation: none !important;
+  }
+
+  .reveal,
+  .stagger-in,
+  .word-up {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tilt-card,
+  .magnetic {
+    transform: none !important;
+    transition: none;
+  }
+}
